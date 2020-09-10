@@ -6,7 +6,7 @@
 /*   By: alborz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 21:14:36 by alborz            #+#    #+#             */
-/*   Updated: 2020/08/13 21:15:26 by alborz           ###   ########.fr       */
+/*   Updated: 2020/09/10 16:15:17 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 int	validate_input(int ac, char **av)
 {
-	int ret = 0;
+	int ret;
+
+	ret = 0;
 	if (ac < 3 || found_dupes(ac, av))
 		return (ret);
 	ret = 1;

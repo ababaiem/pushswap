@@ -6,7 +6,7 @@
 /*   By: alborz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 21:15:34 by alborz            #+#    #+#             */
-/*   Updated: 2020/08/13 21:18:36 by alborz           ###   ########.fr       */
+/*   Updated: 2020/09/10 16:16:29 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,18 @@ int	only_digits(char *str)
 
 int	found_dupes(int ac, char **av)
 {
-	int x = 1;
-	int y = 0;
+	int x;
+	int y;
 
-	while(x < ac)
+	x = 1;
+	y = 0;
+	while (x < ac)
 	{
 		y = x + 1;
-		while(y < ac)
+		while (y < ac)
 		{
-			if(ft_atoi(av[x]) == ft_atoi(av[y]))
-				return 1;
+			if (ft_atoi(av[x]) == ft_atoi(av[y]))
+				return (1);
 			y++;
 		}
 		x++;
