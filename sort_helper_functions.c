@@ -6,7 +6,7 @@
 /*   By: alborz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 20:58:46 by alborz            #+#    #+#             */
-/*   Updated: 2020/08/14 00:09:12 by alborz           ###   ########.fr       */
+/*   Updated: 2020/09/10 17:48:08 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 int	find_min(t_stack *stack)
 {
-	int min = stack->num;
+	int min;
+
+	min = stack->num;
 	while (stack)
 	{
 		if (min > stack->num)
-		    min = stack->num;
+			min = stack->num;
 		stack = stack->next;
 	}
 	return (min);
@@ -27,7 +29,9 @@ int	find_min(t_stack *stack)
 
 int	find_max(t_stack *stack)
 {
-	int max = stack->num;
+	int max;
+
+	max = stack->num;
 	while (stack)
 	{
 		if (max < stack->num)
@@ -39,7 +43,9 @@ int	find_max(t_stack *stack)
 
 int	find_position(t_stack *start, int n)
 {
-	int pos = 0;
+	int pos;
+
+	pos = 0;
 	while (start)
 	{
 		if (n == start->num)
@@ -52,10 +58,13 @@ int	find_position(t_stack *start, int n)
 
 void	push_min_or_max_b(t_stack **a, t_stack **b, int repeat, int a_len)
 {
-	int i = 0;
-	int min = find_min(*a);
-	int max = find_max(*a);
+	int i;
+	int min;
+	int max;
 
+	i = 0;
+	min = find_min(*a);
+	max = find_max(*a);
 	while (i < repeat)
 	{
 		if (find_position(*a, min) == 0 || find_position(*a, max) == 0)
@@ -74,9 +83,11 @@ void	push_min_or_max_b(t_stack **a, t_stack **b, int repeat, int a_len)
 
 void	push_max_a(t_stack **b, t_stack **a, int repeat)
 {
-	int i = 0;
-	int max = find_max(*b);
+	int i;
+	int max;
 
+	i = 0;
+	max = find_max(*b);
 	while (i < repeat)
 	{
 		if (find_position(*b, max) == 1)
@@ -97,7 +108,7 @@ int	contains_range(t_stack *stack, int range)
 {
 	while (stack)
 	{
-		if(stack->num <= range)
+		if (stack->num <= range)
 			return (1);
 		stack = stack->next;
 	}
