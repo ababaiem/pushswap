@@ -6,7 +6,7 @@
 /*   By: ababaie- <ababaie-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 19:30:00 by ababaie-          #+#    #+#             */
-/*   Updated: 2020/08/14 00:09:35 by alborz           ###   ########.fr       */
+/*   Updated: 2020/09/10 15:59:28 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@
 
 typedef struct		s_stack
 {
-    int			num;
-    struct s_stack	*next;
-}			t_stack;
+	int			num;
+	struct s_stack	*next;
+}					t_stack;
 
 t_stack	*new_node(int val);
 t_stack	*append(t_stack *end, t_stack *new);
