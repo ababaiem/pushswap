@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_pop.c                                         :+:      :+:    :+:   */
+/*   stack_helper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alborz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/13 20:39:02 by alborz            #+#    #+#             */
-/*   Updated: 2020/09/10 19:51:42 by ababaie-         ###   ########.fr       */
+/*   Created: 2020/09/10 19:47:51 by alborz            #+#    #+#             */
+/*   Updated: 2020/09/10 19:48:27 by alborz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,51 +16,37 @@
 #include <string.h>
 #include <stdlib.h>
 
-t_stack	*new_node(int val)
-{
-	t_stack *stack;
-
-	stack = (t_stack*)malloc(sizeof(t_stack));
-	(stack)->num = val;
-	(stack)->next = NULL;
-	return (stack);
-}
-
-t_stack	*append(t_stack *end, t_stack *new)
-{
-	end->next = new;
-	return (end->next);
-}
-
-int	stack_len(t_stack **head)
-{
-	int		len;
-	t_stack	*ptr;
-	
-	len = 0;
-	if (*head != NULL)
-	{
-		len = 1;
-		ptr = *head;
-		while (ptr->next != NULL)
-		{
-			len++;
-			ptr = ptr->next;
-		}
-	}
-	return (len);
-}
-
-int		is_sorted(t_stack *start)
+void		print_stack(t_stack *start)
 {
 	t_stack *ptr;
 
 	ptr = start;
-	while (ptr->next != NULL)
+	while (ptr != NULL)
 	{
-		if (ptr->num > ptr->next->num)
-			return (0);
+		ft_putnbr(ptr->num);
+		ft_putchar('\n');
 		ptr = ptr->next;
 	}
-	return (1);
+	ft_putchar('\n');
+}
+
+void		print_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a)
+		print_stack(stack_a);
+	if (stack_b)
+		print_stack(stack_b);
+}
+
+void		free_stack(t_stack *start)
+{
+	t_stack *ptr;
+
+	ptr = start;
+	while (ptr != NULL)
+	{
+		start = ptr;
+		ptr = ptr->next;
+		free(start);
+	}
 }
