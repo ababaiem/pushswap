@@ -6,7 +6,7 @@
 #    By: ababaie- <ababaie-@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/13 19:26:35 by ababaie-          #+#    #+#              #
-#    Updated: 2020/09/10 19:57:45 by ababaie-         ###   ########.fr        #
+#    Updated: 2020/09/10 20:07:48 by ababaie-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CNAME	= checker
 CSRC	= checker.c stack_ops.c do_op.c push_pop.c stack_helper.c validate.c \
 	  validate_helpers.c $(LIB)
 PSRC 	= push_swap.c push_pop.c sort.c sort_20.c stack_ops.c stack_helper.c \
-	  do_op.c validate.c sort_helper_functions.c validate_helpers.c $(LIB)
+	  do_op.c validate.c sort_helper_functions.c find_helper.c \
+	  validate_helpers.c $(LIB)
 
 all: $(LIB) $(CNAME) $(PNAME)
 
