@@ -6,7 +6,7 @@
 /*   By: ababaie- <ababaie-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 20:09:00 by ababaie-          #+#    #+#             */
-/*   Updated: 2020/09/10 17:31:46 by ababaie-         ###   ########.fr       */
+/*   Updated: 2020/09/10 20:12:00 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	free_stacks(t_stack *stack_a, t_stack *stack_b)
 
 static int	checker(t_stack *stack_a, t_stack *stack_b)
 {
-	int	bad_op;
+	int		bad_op;
 	char	*line;
 
 	bad_op = 0;
@@ -46,7 +46,7 @@ static int	checker(t_stack *stack_a, t_stack *stack_b)
 	return (1);
 }
 
-int	main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_stack *stack_a;
 	t_stack *stack_b;

@@ -6,7 +6,7 @@
 /*   By: alborz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 20:39:02 by alborz            #+#    #+#             */
-/*   Updated: 2020/09/10 19:51:42 by ababaie-         ###   ########.fr       */
+/*   Updated: 2020/09/10 20:13:47 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ t_stack	*append(t_stack *end, t_stack *new)
 	return (end->next);
 }
 
-int	stack_len(t_stack **head)
+int		stack_len(t_stack **head)
 {
 	int		len;
 	t_stack	*ptr;
-	
+
 	len = 0;
 	if (*head != NULL)
 	{
