@@ -6,7 +6,7 @@
 /*   By: alborz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 20:52:21 by alborz            #+#    #+#             */
-/*   Updated: 2020/08/14 00:09:10 by alborz           ###   ########.fr       */
+/*   Updated: 2020/09/10 16:13:43 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,25 @@ void	sort(t_stack **a, t_stack **b, int len)
 	}
 }
 
-void    sort_3(t_stack **stack_a, t_stack **stack_b)
+static void	init_sort_3(t_stack **stack_a, int *top, int *mid, int *bot)
 {
-	int top, mid, bot;
 	t_stack *ptr;
+
 	ptr = *stack_a;
-
-	top = ptr->num;
+	*top = ptr->num;
 	ptr = ptr->next;
-	mid = ptr->num;
+	*mid = ptr->num;
 	ptr = ptr->next;
-	bot = ptr->num;
+	*bot = ptr->num;
+}
 
+void	sort_3(t_stack **stack_a, t_stack **stack_b)
+{
+	int	top;
+	int	mid;
+	int	bot;
+
+	init_sort_3(stack_a, &top, &mid, &bot);
 	if (top > mid && mid < bot && bot > top)
 		print_do_op(SA, stack_a, stack_b);
 	else if (top > mid && mid > bot && bot < top)
@@ -68,10 +75,13 @@ void    sort_3(t_stack **stack_a, t_stack **stack_b)
 
 void	sort_4_or_5(t_stack **a, t_stack **b)
 {
-	int	min = find_min(*a);
-	int max = find_max(*a);
-	int repeat = stack_len(a) - 3;
-	
+	int	min;
+	int	max;
+	int	repeat;
+
+	min = find_min(*a);
+	max = find_max(*a);
+	repeat = stack_len(a) - 3;
 	push_min_or_max_b(a, b, repeat, stack_len(a));
 	if (!(is_sorted(*a)))
 		sort_3(a, b);
@@ -87,14 +97,10 @@ void	sort_4_or_5(t_stack **a, t_stack **b)
 	}
 }
 
-
-void	sort_20(t_stack **a, t_stack **b, int len)
+static int	get_inc(t_stack **a, int len)
 {
-	int	range;
-	int i;
 	int inc;
 
-	range = find_min(*a);
 	if (len >= 20 && len <= 100)
 	{
 		inc = find_max(*a) / 6;
@@ -102,10 +108,21 @@ void	sort_20(t_stack **a, t_stack **b, int len)
 	else
 	{
 		if (find_max(*a) == len)
-		    inc = 36;
+			inc = 36;
 		else
-		    inc = find_max(*a) / 15;
+			inc = find_max(*a) / 15;
 	}
+	return (inc);
+}
+
+void	sort_20(t_stack **a, t_stack **b, int len)
+{
+	int	range;
+	int	i;
+	int	inc;
+
+	range = find_min(*a);
+	inc = get_inc(a, len);
 	i = 1;
 	while (*a)
 	{
