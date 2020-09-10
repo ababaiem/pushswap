@@ -6,7 +6,7 @@
 /*   By: ababaie- <ababaie-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 18:31:05 by ababaie-          #+#    #+#             */
-/*   Updated: 2020/08/13 23:54:11 by ababaie-         ###   ########.fr       */
+/*   Updated: 2020/09/10 15:50:52 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include "get_next_line.h"
 # define INT_MAX 2147483647
-# define INT_MIN (-2147483647 - 1)
+# define INT_MIN -2147483647
 
 typedef struct		s_list
 {
