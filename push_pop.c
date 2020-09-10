@@ -6,7 +6,7 @@
 /*   By: alborz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 20:39:02 by alborz            #+#    #+#             */
-/*   Updated: 2020/08/14 00:09:00 by alborz           ###   ########.fr       */
+/*   Updated: 2020/09/10 17:53:15 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 t_stack	*new_node(int val)
 {
 	t_stack *stack;
+
 	stack = (t_stack*)malloc(sizeof(t_stack));
 	(stack)->num = val;
 	(stack)->next = NULL;
@@ -33,7 +34,8 @@ t_stack	*append(t_stack *end, t_stack *new)
 
 void		print_stack(t_stack *start)
 {
-	t_stack *ptr = NULL;
+	t_stack *ptr;
+
 	ptr = start;
 	while (ptr != NULL)
 	{
@@ -55,6 +57,7 @@ void		print_stacks(t_stack *stack_a, t_stack *stack_b)
 void		free_stack(t_stack *start)
 {
 	t_stack *ptr;
+
 	ptr = start;
 	while (ptr != NULL)
 	{
@@ -66,16 +69,18 @@ void		free_stack(t_stack *start)
 
 int		stack_len(t_stack **head)
 {
-	int len = 0;
+	t_stack	*ptr;
+	int	len;
+	
+	len = 0;
 	if (*head != NULL)
 	{
 		len = 1;
-		t_stack *ptr;
 		ptr = *head;
 		while (ptr->next != NULL)
 		{
-		    len++;
-		    ptr = ptr->next;
+			len++;
+			ptr = ptr->next;
 		}
 	}
 	return (len);
@@ -83,7 +88,8 @@ int		stack_len(t_stack **head)
 
 int		is_sorted(t_stack *start)
 {
-	t_stack *ptr = NULL;
+	t_stack *ptr;
+
 	ptr = start;
 	while (ptr->next != NULL)
 	{
