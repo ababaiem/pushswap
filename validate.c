@@ -6,12 +6,48 @@
 /*   By: alborz <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 21:14:36 by alborz            #+#    #+#             */
-/*   Updated: 2020/09/10 16:15:17 by ababaie-         ###   ########.fr       */
+/*   Updated: 2020/09/10 19:42:17 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "push_swap.h"
+
+int	valid_input_string(char **av)
+{
+	static char	**arr;
+	int			i;
+
+	arr = ft_strsplit(av[1], ' ');
+	i = 0;
+	if (!only_digits(av[1]))
+		return (0);
+	while (arr[i])
+	{
+		if (int_overflows(arr[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	valid_input_int(int ac, char **av)
+{
+	int i;
+
+	i = 1;
+	while (av[i])
+	{
+		if (int_overflows(av[i]))
+			return (0);
+		if (!only_digits(av[i]))
+			return (0);
+		i++;
+	}
+	if (found_dupes(ac, av))
+		return (0);
+	return (1);
+}
 
 int	validate_input(int ac, char **av)
 {
