@@ -6,7 +6,7 @@
 /*   By: ababaie- <ababaie-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 20:09:00 by ababaie-          #+#    #+#             */
-/*   Updated: 2020/09/10 20:12:00 by ababaie-         ###   ########.fr       */
+/*   Updated: 2020/09/11 13:05:38 by ababaie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,11 @@ int			main(int ac, char **av)
 	t_stack *stack_b;
 
 	if (ac < 3)
+	{
+		if (!only_digits(av[1]) || !valid_input_int(ac, av))
+			ft_putendl(ERROR);
 		return (0);
+	}
 	if (valid_input(ac, av))
 	{
 		stack_a = NULL;
